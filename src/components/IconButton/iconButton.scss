@@ -1,0 +1,23 @@
+.icon-button-wrapper {
+  border: none;
+  outline: none;
+  user-select: none;
+  position: relative;
+  background-color: transparent;
+  transition: transform 0.2s ease;
+
+  svg {
+    width: 1.7rem;
+    pointer-events: none;
+    fill: var(--text-color);
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+}

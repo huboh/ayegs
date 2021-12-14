@@ -1,0 +1,45 @@
+.wishlist-button,
+.user-account-button {
+  display: none;
+}
+
+.icon-button-wrapper.user-account-button {
+  padding: 0.3em 0.6em;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color-light);
+
+  .user-greeting-text {
+    text-align: left;
+    margin-left: 0.4em;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+.item-count-wrapper {
+  padding: 0.2em 0.4em;
+  position: absolute;
+  right: -40%;
+  top: -15%;
+
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  font: 800 0.75rem/1 "Quicksand", sans-serif;
+}
+
+.icon-button-wrapper:not(:last-of-type) {
+  margin-right: 1.8em;
+}
+
+.cart-button {
+  margin-right: 0.8em;
+}
+
+@media screen and (min-width: 760px) {
+  .wishlist-button,
+  .user-account-button {
+    display: flex;
+  }
+}

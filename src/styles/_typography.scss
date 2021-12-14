@@ -1,0 +1,30 @@
+body {
+  color: var(--color);
+  font-family: "Lato", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font: normal 500 1rem "Open Sans", sans-serif;
+}
+
+input,
+select,
+textarea {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  font: normal 500 1rem "Open Sans", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  font-size: inherit;
+  font-family: "Quicksand", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
