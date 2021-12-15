@@ -1,3 +1,5 @@
+import './footer.scss';
+
 import { FC } from "react";
 import PrimaryFooter from "./components/PrimaryFooter";
 import SecondaryFooter from "./components/SecondaryFooter";

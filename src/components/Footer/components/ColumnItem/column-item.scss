@@ -1,0 +1,19 @@
+li {
+  .column-item-link {
+    margin: 0;
+    display: block;
+    padding: 0.4em 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--text-color);
+    text-transform: capitalize;
+    transition: transform 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+  }
+}

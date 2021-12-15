@@ -1,5 +1,9 @@
 .primary-footer-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+
+  .footer-column + .footer-column {
+    margin-left: 1em;
+  }
 }
