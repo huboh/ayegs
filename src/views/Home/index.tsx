@@ -56,7 +56,7 @@ const dummyProducts: Products = [
 const Home: FC = () => {
   return (
     <main className="main home">
-      <ProductCarousel products={ dummyProducts } />
+      <ProductCarousel title="recent products" products={ dummyProducts } />
     </main>
   );
 };

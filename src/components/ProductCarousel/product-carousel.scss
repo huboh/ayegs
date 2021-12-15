@@ -1,5 +1,16 @@
-.product-carousel-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.product-carousel {
+  padding: 1em;
+
+  .carousel-title {
+    margin: 0.6em 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  .product-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
 }
