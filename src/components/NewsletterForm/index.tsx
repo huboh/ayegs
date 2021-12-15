@@ -1,23 +1,27 @@
-import { FC, FormEvent, useState } from "react";
+import './newsletter-form.scss';
+import { FC } from "react";
+
+import HorizontalForm from '../HorizontalForm';
+import { ReactComponent as MailIcon } from './mail-icon.svg';
 
 interface NewsletterProps {
   defaultEmail?: string;
+  placeholder?: string;
   onSubscribe(email: string): void;
 }
 
-const NewsletterForm: FC<NewsletterProps> = ({ defaultEmail = '', onSubscribe }) => {
-  const [email, setEmail] = useState(defaultEmail);
-  const handleInput = ({ target }: FormEvent<HTMLInputElement> & { target: { value: string; }; }) => {
-    setEmail(target.value);
-  };
+const NewsletterForm: FC<NewsletterProps> = ({ defaultEmail = '', onSubscribe, placeholder }) => {
 
   return (
     <div className="newsletter-promo">
       <h1 className="promo-header">join our newsletter</h1>
       <p className="promo-text">get 15% off your first purchase</p>
-      <form className="newsletter-form" onSubmit={ () => onSubscribe(email) }>
-        <input type="email" name="" id="" onInput={ handleInput } />
-      </form>
+      <HorizontalForm
+        icon={ <MailIcon /> }
+        onSubmit={ onSubscribe }
+        defaultValue={ defaultEmail }
+        placeholder={ placeholder ?? 'email address' }
+      />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import NewsletterForm from "../../../NewsletterForm";
 const SecondaryFooter: FC = () => {
   return (
     <section className="secondary-footer">
-      <NewsletterForm onSubscribe={ () => { } } />
+      <NewsletterForm onSubscribe={ (email) => console.log(email) } />
       <DownloadApp />
     </section>
   );

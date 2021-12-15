@@ -1,0 +1,52 @@
+.horizontal-form {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-flow: row nowrap;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color-light);
+
+  svg {
+    margin: auto 0.6em;
+    cursor: pointer;
+    margin-right: 0;
+    min-width: 1.7em;
+    width: 1.7em;
+  }
+
+  .horizontal-form-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    outline: none;
+    padding: 0.7em 0.4em;
+    padding-left: 0.6em;
+    text-overflow: ellipsis;
+    background-color: transparent;
+  }
+
+  .submit-button {
+    border: none;
+    font-weight: 700;
+    padding: 0.6em 0.8em;
+    text-transform: capitalize;
+    background-color: var(--primary-color);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: var(--primary-color);
+      background-color: var(--text-color);
+    }
+
+    &:active {
+      background-color: var(--text-color-light);
+    }
+  }
+
+  &:focus-within {
+    background-color: var(--primary-color-hover-light);
+  }
+}
