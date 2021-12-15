@@ -3,6 +3,7 @@ import { FC, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Home = lazy(() => import('../views/Home'));
 const Cart = lazy(() => import('../views/Cart'));
@@ -28,6 +29,8 @@ const App: FC = () => {
 
             <Route path='*' element={ <NotFound /> } />
           </Routes>
+
+          <Footer />
         </div>
       </Suspense>
     </Router>

@@ -1,0 +1,51 @@
+.promo-cta {
+  text-decoration: none;
+  padding: 0.3em 0.6em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--text-color);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+
+  svg {
+    min-width: 1.7em;
+    width: 1.7em;
+    display: block;
+  }
+
+  .text-wrapper {
+    text-align: left;
+    margin-left: 0.3em;
+
+    .title {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 400;
+      white-space: nowrap;
+      text-transform: capitalize;
+    }
+
+    .text {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      text-transform: capitalize;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    background-color: var(--text-color);
+  }
+
+  &:active {
+    transform: scale(0.9) translateY(4px);
+  }
+}
