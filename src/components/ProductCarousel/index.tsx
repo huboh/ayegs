@@ -2,7 +2,7 @@ import './product-carousel.scss';
 
 import { FC } from "react";
 import { Products } from "../../types";
-import ProductCard from '../ProductCard';
+import Product from '../Product';
 
 interface ProductCarouselProps {
   title: string;
@@ -15,7 +15,7 @@ const ProductCarousel: FC<ProductCarouselProps> = ({ products, title }) => {
     <div className="product-carousel">
       <h1 className='carousel-title'>{ title }</h1>
       <div className="product-carousel-wrapper">
-        { products?.map((product) => <ProductCard key={ product.productId } productData={ product } />) }
+        { products?.map((product) => <Product key={ product.productId } productData={ product } />) }
       </div>
     </div>
   );

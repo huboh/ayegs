@@ -9,7 +9,7 @@ const dummyProducts: Products = [
     price: '20',
     productId: 'sfddsryhsr',
     ratings: 2,
-    title: 'air jordan mens air jordan sneakers orignal',
+    title: 'air jordan mens air jordan sneakers orignal air jordan mens air jordan sneakers orignal',
     descriptions: {},
     reviews: 22,
     images: [''],
