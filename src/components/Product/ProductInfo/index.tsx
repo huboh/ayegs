@@ -5,12 +5,13 @@ import AddToCartButton from "../../AddToCartButton";
 import useCurrency from '../../../hooks/useCurrency';
 
 interface ProductInfoProps {
-  title: string;
+  productLink: string;
   category: string;
+  title: string;
   price: string;
 }
 
-const ProductInfo: FC<ProductInfoProps> = ({ price, category, title }) => {
+const ProductInfo: FC<ProductInfoProps> = ({ price, category, title, productLink }) => {
   const { formatCurrency } = useCurrency();
 
   return (
@@ -19,7 +20,7 @@ const ProductInfo: FC<ProductInfoProps> = ({ price, category, title }) => {
         { category }
       </Link>
       <h1 className='product-title'>
-        <Link className='link' to={ `products/` }>{ title }</Link>
+        <Link className='link' to={ productLink }>{ title }</Link>
       </h1>
       <div className="add-to-cart-wrapper">
         <p className='product-price-wrapper'>

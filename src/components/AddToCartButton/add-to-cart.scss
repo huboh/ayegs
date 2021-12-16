@@ -13,7 +13,8 @@
     width: 100%;
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     background-color: var(--text-color);
 
     .cart-icon {

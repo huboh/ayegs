@@ -2,6 +2,7 @@ export interface Product {
   descriptions: object;
   mainImage: string;
   productId: string;
+  discount: number;
   category: string;
   images: string[];
   ratings: number;

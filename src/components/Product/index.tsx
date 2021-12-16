@@ -1,28 +1,22 @@
 import './product-card.scss';
-
 import { FC } from "react";
 import { Product as ProductProp } from "../../types";
 
+import DiscountTag from './DiscountTag';
 import ProductInfo from './ProductInfo';
 import ProductImage from './ProductImage';
-
-const DiscountTag = () => {
-
-  return (
-    <div className="product-info-wrapper" style={ { position: 'absolute', zIndex: '-2' } }>
-
-    </div>
-  );
-};
+import WishListButton from './WishListButton';
 
 const Product: FC<{ productData: ProductProp; }> = ({ productData, ...otherProps }) => {
-  const { category, price, title, mainImage } = productData;
+  const { category, price, title, mainImage, discount, productId } = productData;
+  const productLink = `products/${productId}`;
 
   return (
     <div className="product-card" { ...otherProps }>
-      <DiscountTag />
-      <ProductImage { ...{ mainImageSrc: mainImage, title } } />
-      <ProductInfo { ...{ category, price, title } } />
+      <WishListButton />
+      <DiscountTag { ...{ discount } } />
+      <ProductImage { ...{ mainImageSrc: mainImage, title, productLink } } />
+      <ProductInfo { ...{ category, price, title, productLink } } />
     </div>
   );
 };
