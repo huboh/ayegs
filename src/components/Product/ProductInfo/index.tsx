@@ -2,6 +2,7 @@ import './product-info.scss';
 import { FC } from "react";
 import { Link } from 'react-router-dom';
 import AddToCartButton from "../../AddToCartButton";
+import useCurrency from '../../../hooks/useCurrency';
 
 interface ProductInfoProps {
   title: string;
@@ -9,21 +10,8 @@ interface ProductInfoProps {
   price: string;
 }
 
-const currencyFormat = {
-  currency: 'USD',
-  lang: 'en-US'
-};
-
-const formatCurrency = (amount: number | string, format = currencyFormat) => {
-  amount = Number(amount);
-
-  return new Intl.NumberFormat(format.lang, {
-    style: 'currency',
-    currency: format.currency,
-  }).format(amount);
-};
-
 const ProductInfo: FC<ProductInfoProps> = ({ price, category, title }) => {
+  const { formatCurrency } = useCurrency();
 
   return (
     <div className="product-info-wrapper">

@@ -2,6 +2,8 @@ import './App.css';
 import { FC, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import AppProviders from '../providers';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -15,25 +17,27 @@ const Dashboard = lazy(() => import('../views/Dashboard'));
 const App: FC = () => {
 
   return (
-    <Router>
-      <Suspense fallback={ <p>loading...</p> }>
-        <div className="app">
-          <Header />
+    <AppProviders>
+      <Router>
+        <Suspense fallback={ <p>loading...</p> }>
+          <div className="app">
+            <Header />
 
-          <Routes>
-            <Route path='/' element={ <Home /> } />
-            <Route path='/cart' element={ <Cart /> } />
-            <Route path='/product' element={ <Product /> } />
-            <Route path='/wishlist' element={ <Wishlist /> } />
-            <Route path='/dashboard' element={ <Dashboard /> } />
+            <Routes>
+              <Route path='/' element={ <Home /> } />
+              <Route path='/cart' element={ <Cart /> } />
+              <Route path='/product' element={ <Product /> } />
+              <Route path='/wishlist' element={ <Wishlist /> } />
+              <Route path='/dashboard' element={ <Dashboard /> } />
 
-            <Route path='*' element={ <NotFound /> } />
-          </Routes>
+              <Route path='*' element={ <NotFound /> } />
+            </Routes>
 
-          <Footer />
-        </div>
-      </Suspense>
-    </Router>
+            <Footer />
+          </div>
+        </Suspense>
+      </Router>
+    </AppProviders>
   );
 };
 
