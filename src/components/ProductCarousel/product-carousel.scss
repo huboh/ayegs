@@ -5,7 +5,23 @@
     margin: 0.6em 0;
     font-size: 2rem;
     font-weight: 700;
+    position: relative;
+    display: inline-block;
     text-transform: capitalize;
+
+    &.vertical-carousel-title {
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -0.1em;
+        right: -0.4em;
+        width: 2em;
+        height: 0.09em;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
+      }
+    }
   }
 
   .product-carousel-wrapper {
@@ -14,5 +30,12 @@
     align-items: center;
     justify-content: flex-start;
     overflow-x: scroll;
+    list-style-type: none;
+  }
+
+  &.product-verical-carousel {
+    .product-list-carousel-wrapper {
+      list-style-type: none;
+    }
   }
 }

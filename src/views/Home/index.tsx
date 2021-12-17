@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Products } from "../../types";
-import ProductCarousel from "../../components/ProductCarousel";
 import ProductLarge from "../../components/ProductLarge";
+import ProductCarousel, { ProductVerticalCarousel } from "../../components/ProductCarousel";
 
 const dummyProducts: Products = [
   {
@@ -64,8 +64,10 @@ const Home: FC = () => {
       <ProductCarousel title="recent products" products={ dummyProducts } />
 
       <ProductCarousel title="deal of the day" products={ dummyProducts } setProductComponent={
-        (key, productInfo) => <ProductLarge key={ key } productData={ productInfo } />
+        (productInfo) => <ProductLarge productData={ productInfo } />
       } />
+
+      <ProductVerticalCarousel title="top deals" products={ dummyProducts } />
 
     </main>
   );

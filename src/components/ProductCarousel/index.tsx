@@ -1,27 +1,49 @@
 import './product-carousel.scss';
 
-import { FC, Key } from "react";
+import { FC } from "react";
 import { Products } from "../../types";
 import Product from '../Product';
+import ProductCardSmall from '../ProductCardSmall';
 
 interface ProductCarouselProps {
   title: string;
   products: Products | [];
-  setProductComponent?: (key: Key, productInfo: Products[0]) => JSX.Element;
+  setProductComponent?: (productInfo: Products[0]) => JSX.Element;
 }
 
 const ProductCarousel: FC<ProductCarouselProps> = ({ products, title, setProductComponent }) => {
 
   return (
-    <div className="product-carousel">
+    <section className="product-carousel">
       <h1 className='carousel-title'>{ title }</h1>
-      <div className="product-carousel-wrapper">
-        { products?.map((product) => setProductComponent?.(product.productId, product) ?? (
-          <Product key={ product.productId } productData={ product } />
+
+      <ul className="product-carousel-wrapper">
+        { products?.map((product) => (
+          <li key={ product.productId }>
+            { setProductComponent?.(product) ?? <Product productData={ product } /> }
+          </li>
         )) }
-      </div>
+      </ul>
+    </section>
+  );
+};
+
+const ProductVerticalCarousel: FC<ProductCarouselProps> = ({ products, title, setProductComponent }) => {
+
+  return (
+    <div className="product-carousel product-verical-carousel">
+      <h1 className='carousel-title vertical-carousel-title'>{ title }</h1>
+
+      <ul className="product-list-carousel-wrapper product-list-carousel-wrapper">
+        { products?.map((product) => (
+          <li key={ product.productId }>
+            { setProductComponent?.(product) ?? <ProductCardSmall productData={ product } /> }
+          </li>
+        )) }
+      </ul>
     </div>
   );
 };
 
-export default ProductCarousel;
+
+export { ProductCarousel as default, ProductVerticalCarousel };
