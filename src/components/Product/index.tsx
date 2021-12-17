@@ -7,7 +7,11 @@ import ProductInfo from './ProductInfo';
 import ProductImage from './ProductImage';
 import WishListButton from './WishListButton';
 
-const Product: FC<{ productData: ProductProp; }> = ({ productData, ...otherProps }) => {
+interface ProductProps {
+  productData: ProductProp;
+}
+
+const Product: FC<ProductProps> = ({ productData, ...otherProps }) => {
   const { category, price, title, mainImage, discount, productId } = productData;
   const productLink = `products/${productId}`;
 
