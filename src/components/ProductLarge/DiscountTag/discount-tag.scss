@@ -1,0 +1,24 @@
+.discount-tag-wrapper {
+  width: max-content;
+  position: absolute;
+  z-index: 4;
+  top: var(--offset-space);
+  left: var(--offset-space);
+  padding: 0.2em 0.3em;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color-dark);
+  border-radius: var(--border-radius);
+
+  &.invert {
+    left: unset;
+    right: var(--offset-space);
+  }
+
+  .discount-tag {
+    display: block;
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+}

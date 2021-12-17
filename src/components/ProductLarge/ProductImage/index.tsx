@@ -12,7 +12,7 @@ interface ProductImageProps {
 const ProductImage: FC<ProductImageProps> = ({ mainImageSrc, title, productLink, ...otherProps }) => {
 
   return (
-    <div className="product-image-wrapper" { ...otherProps }>
+    <div className="product-large-image-wrapper" { ...otherProps }>
       <Link to={ productLink } className='image-link-wrapper'>
         <img className='product-image' src={ mainImageSrc } alt={ title } />
       </Link>

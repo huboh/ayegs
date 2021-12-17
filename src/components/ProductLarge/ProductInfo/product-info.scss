@@ -1,12 +1,13 @@
-.product-info-wrapper {
+.product-large-info-wrapper {
   width: 100%;
   height: 37%;
   font-weight: 500;
   font-size: 0.8rem;
   display: flex;
   flex-flow: column nowrap;
-  padding: 0.1em 0.5em 0.5em;
   color: var(--text-color);
+  padding: 0.1em var(--padding) var(--padding);
+  background-color: var(--background-color);
 
   .link {
     outline: none;
@@ -31,7 +32,7 @@
   .product-title {
     width: 100%;
     margin: 0.2em 0;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.8rem;
     text-transform: capitalize;
 
@@ -46,13 +47,15 @@
     }
   }
 
-  .add-to-cart-wrapper {
+  .price-rating-wrapper {
     display: flex;
     margin-top: auto;
     align-items: center;
     justify-content: space-between;
 
     .product-price-wrapper {
+      margin-left: auto;
+
       .discount-price {
         font-size: 1rem;
         font-weight: 600;
@@ -61,6 +64,7 @@
       }
 
       .original-price {
+        font-size: 0.85rem;
         font-weight: 700;
         text-decoration: line-through;
         color: var(--text-color-light);
