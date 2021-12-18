@@ -1,0 +1,8 @@
+.rating-icon {
+  font-size: 0.8rem;
+  fill: gold;
+
+  &.empty-icon {
+    fill: grey;
+  }
+}

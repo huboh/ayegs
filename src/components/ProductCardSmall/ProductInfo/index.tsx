@@ -1,6 +1,7 @@
 import './product-info.scss';
 import { FC } from "react";
 import { Link } from 'react-router-dom';
+import ProductRating from '../../ProductRating';
 import useCurrency from '../../../hooks/useCurrency';
 
 interface ProductInfoProps {
@@ -19,6 +20,7 @@ const ProductInfo: FC<ProductInfoProps> = ({ price, title, productLink }) => {
         <Link className='link' to={ productLink }>{ title }</Link>
       </h1>
       <div className="price-rating-wrapper">
+        <ProductRating />
         <p className='product-price-wrapper'>
           <span className='discount-price'>{ formatCurrency(price) }</span>
           <span className='original-price'>{ formatCurrency(30.99) }</span>
