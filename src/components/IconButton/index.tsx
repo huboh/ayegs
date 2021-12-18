@@ -1,5 +1,5 @@
 import './iconButton.scss';
-import { FC, MouseEvent, CSSProperties } from "react";
+import { MouseEvent, CSSProperties, forwardRef } from "react";
 
 export interface IconButtonProps {
   className?: string;
@@ -9,10 +9,12 @@ export interface IconButtonProps {
   onClick(event: MouseEvent): void;
 }
 
-const IconButton: FC<IconButtonProps> = ({ children, title, style, onClick, className = '', ...otherProps }) => {
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
+  const { children, title, style, onClick, className = '', ...otherProps } = props;
 
   return (
     <button
+      ref={ ref }
       title={ title }
       style={ style }
       { ...otherProps }
@@ -22,6 +24,6 @@ const IconButton: FC<IconButtonProps> = ({ children, title, style, onClick, clas
       { children }
     </button>
   );
-};
+});
 
 export default IconButton;

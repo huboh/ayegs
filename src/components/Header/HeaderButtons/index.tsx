@@ -1,12 +1,13 @@
 import './headerButton.scss';
 
-import { FC, CSSProperties } from 'react';
+import { FC, CSSProperties, useRef, useEffect } from 'react';
 
 import IconButton from '../../IconButton';
 import { ReactComponent as UserSvgIcon } from './icons/user.svg';
 import { ReactComponent as CartSvgIcon } from './icons/cart.svg';
 import { ReactComponent as WishlistSvgIcon } from './icons/favorite.svg';
 import { ReactComponent as HamburgerSvgIcon } from './icons/hamburger-menu.svg';
+import useEventListener from '../../../hooks/useEventListener';
 
 export interface ClickableButtonProps {
   style?: CSSProperties;
@@ -23,11 +24,24 @@ export const HamburgerButton: FC<ClickableButtonProps> = ({ onClick, style }) =>
 
 export const CartIcon: FC<ClickableButtonProps & { itemCount?: number; }> = ({ onClick, itemCount = 0 }) => {
   const cartItemCount = itemCount;
+  const cartButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    console.log('btn rendered');
+  });
+
+  useEventListener({
+    eventType: 'click',
+    target: cartButtonRef,
+    eventHandler: (e) => {
+      console.log(e);
+    }
+  });
 
   return (
-    <IconButton onClick={ onClick } className='cart-button' title='cart'>
+    <IconButton onClick={ onClick } className='cart-button' title='cart' ref={ cartButtonRef }>
       <CartSvgIcon />
-      <span className='item-count-wrapper'>
+      <span className='item-count-wrapper' >
         <span className='item-count'>{ cartItemCount }</span>
       </span>
     </IconButton>
