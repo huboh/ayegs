@@ -35,7 +35,7 @@ const ProductVerticalCarousel: FC<ProductCarouselProps> = ({ products, title, se
       <h1 className='carousel-title vertical-carousel-title'>{ title }</h1>
 
       <ul className="product-list-carousel-wrapper product-list-carousel-wrapper">
-        { products?.map((product) => (
+        { products?.slice(0, 3).map((product) => (
           <li key={ product.productId }>
             { setProductComponent?.(product) ?? <ProductCardSmall productData={ product } /> }
           </li>

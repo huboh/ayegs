@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { Products } from "../../types";
-import ProductLarge from "../../components/ProductLarge";
-import ProductCarousel from "../../components/ProductCarousel";
-import ProductCampaign from "../../components/ProductCampaign";
+import './product-campaign.scss';
+
+import { FC } from 'react';
+import { Products } from '../../types';
+import { ProductVerticalCarousel } from '../ProductCarousel';
 
 const dummyProducts: Products = [
   {
@@ -59,18 +59,16 @@ const dummyProducts: Products = [
   }
 ];
 
-const Home: FC = () => {
+const ProductCampaign: FC<{}> = () => {
+
   return (
-    <main className="main home">
-      <ProductCarousel title="recent products" products={ dummyProducts } />
-
-      <ProductCarousel title="deal of the day" products={ dummyProducts } setProductComponent={
-        (productInfo) => <ProductLarge productData={ productInfo } />
-      } />
-
-      <ProductCampaign />
-    </main>
+    <section className='products-campaign-list-wrapper'>
+      <ProductVerticalCarousel title="top deals" products={ dummyProducts } />
+      <ProductVerticalCarousel title="trending products" products={ dummyProducts } />
+      <ProductVerticalCarousel title="recently added" products={ dummyProducts } />
+      <ProductVerticalCarousel title="top rated" products={ dummyProducts } />
+    </section>
   );
 };
 
-export default Home;
+export default ProductCampaign;

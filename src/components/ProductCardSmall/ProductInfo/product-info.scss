@@ -10,8 +10,9 @@
   justify-content: space-between;
 
   color: var(--text-color);
-  padding: 0.1em var(--padding) var(--padding);
-  background-color: var(--background-color);
+  padding: 0;
+  padding-inline-start: var(--padding);
+  background-color: transparent;
 
   .link {
     outline: none;
@@ -28,7 +29,7 @@
 
   .product-title {
     width: 100%;
-    margin: 0.2em 0;
+    margin: 0 0 0.2em 0;
     font-weight: 800;
     font-size: 0.8rem;
     text-transform: capitalize;

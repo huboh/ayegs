@@ -3,13 +3,16 @@
 
   .carousel-title {
     margin: 0.6em 0;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
     font-weight: 700;
     position: relative;
     display: inline-block;
     text-transform: capitalize;
 
     &.vertical-carousel-title {
+      font-size: 1.3rem;
+
       &::after {
         content: "";
         display: block;
@@ -18,6 +21,7 @@
         right: -0.4em;
         width: 2em;
         height: 0.09em;
+        transition: transform 0.2s ease;
         border-radius: var(--border-radius);
         background-color: var(--primary-color);
       }
@@ -34,8 +38,19 @@
   }
 
   &.product-verical-carousel {
+    padding: 0.2em;
+    width: max-content;
+
     .product-list-carousel-wrapper {
       list-style-type: none;
+    }
+
+    &:hover {
+      .vertical-carousel-title {
+        &::after {
+          transform: translateX(-10px);
+        }
+      }
     }
   }
 }
