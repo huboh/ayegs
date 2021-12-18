@@ -15,7 +15,7 @@ export interface ClickableButtonProps {
 
 export const HamburgerButton: FC<ClickableButtonProps> = ({ onClick, style }) => {
   return (
-    <IconButton onClick={ onClick } style={ style }>
+    <IconButton onClick={ onClick } style={ style } title='hamburger button'>
       <HamburgerSvgIcon />
     </IconButton>
   );
@@ -25,7 +25,7 @@ export const CartIcon: FC<ClickableButtonProps & { itemCount?: number; }> = ({ o
   const cartItemCount = itemCount;
 
   return (
-    <IconButton onClick={ onClick } className='cart-button'>
+    <IconButton onClick={ onClick } className='cart-button' title='cart'>
       <CartSvgIcon />
       <span className='item-count-wrapper'>
         <span className='item-count'>{ cartItemCount }</span>
@@ -38,7 +38,7 @@ export const WishlistIcon: FC<ClickableButtonProps & { itemCount?: number; }> = 
   const wishlistItemCount = itemCount;
 
   return (
-    <IconButton onClick={ onClick } className='wishlist-button'>
+    <IconButton onClick={ onClick } className='wishlist-button' title='wishlist'>
       <WishlistSvgIcon />
       <span className='item-count-wrapper'>
         <span className='item-count'>{ wishlistItemCount }</span>
@@ -49,7 +49,7 @@ export const WishlistIcon: FC<ClickableButtonProps & { itemCount?: number; }> = 
 
 export const UserAccountButton: FC<ClickableButtonProps> = ({ onClick }) => {
   return (
-    <IconButton onClick={ onClick } className='user-account-button'>
+    <IconButton onClick={ onClick } className='user-account-button' title='user'>
       <UserSvgIcon />
       <span className="user-greeting-text">Hello, Sign in <br />or Register</span>
     </IconButton>

@@ -19,6 +19,8 @@ const NewsletterForm: FC<NewsletterProps> = ({ defaultEmail = '', onSubscribe, p
       <HorizontalForm
         icon={ <MailIcon /> }
         onSubmit={ onSubscribe }
+        submitButtonText='subscribe'
+        submitButtonTitle='subscribe'
         defaultValue={ defaultEmail }
         placeholder={ placeholder ?? 'email address' }
       />

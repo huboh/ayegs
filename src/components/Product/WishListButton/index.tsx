@@ -9,7 +9,7 @@ const WishListButton: FC<{}> = () => {
   const [checked, setChecked] = useState(false);
 
   return (
-    <IconButton onClick={ () => setChecked(!checked) } className='product-wishlist-button' >
+    <IconButton onClick={ () => setChecked(!checked) } className='product-wishlist-button' title='wishlist'>
       { checked ? <WishListCheckedIcon className="wishlist-icon checked" /> : <WishListIcon className="wishlist-icon" /> }
     </IconButton>
   );

@@ -5,6 +5,7 @@ interface HorizontalFormProps {
   inputType?: HTMLInputTypeAttribute;
   onSubmit(input: string): void;
   submitButtonText?: string;
+  submitButtonTitle: string;
   defaultValue?: string;
   placeholder?: string;
   inputName?: string;
@@ -29,7 +30,9 @@ const HorizontalForm: FC<HorizontalFormProps> = (props) => {
         placeholder={ placeholder }
         className="input horizontal-form-input"
       />
-      <button className='submit-button'>{ props.submitButtonText ?? 'submit' }</button>
+      <button className='submit-button' title={ props.submitButtonTitle }>
+        { props.submitButtonText ?? 'submit' }
+      </button>
     </form>
   );
 };
