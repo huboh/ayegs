@@ -1,0 +1,50 @@
+.primary-button {
+  border: none;
+  display: flex;
+  font-size: 0.9rem;
+  width: max-content;
+  padding: 0.65em 1em;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  outline-color: var(--text-color);
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  transition: background-color 0.2s, transform 0.2s;
+
+  .icon-wrapper {
+    width: 1rem;
+    margin-left: 0.6em;
+
+    & > * {
+      width: 100%;
+      fill: var(--text-color);
+      transition: fill 0.2s ease;
+    }
+  }
+
+  .text-wrapper {
+    margin: 0;
+    display: block;
+    font-weight: 800;
+    white-space: nowrap;
+    text-transform: capitalize;
+    transition: color 0.2s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    color: var(--primary-color);
+    background-color: var(--text-color);
+
+    .icon-wrapper {
+      & > * {
+        fill: var(--primary-color);
+      }
+    }
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+}

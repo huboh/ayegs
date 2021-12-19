@@ -1,10 +1,9 @@
 body {
-  color: var(--color);
   font-family: "Lato", sans-serif;
   font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font: normal 500 1rem "Quicksand" "Lato" "Open Sans", sans-serif;
+  font: normal 500 1rem "Quicksand", "Lato", "Open Sans", sans-serif;
 }
 
 input,
