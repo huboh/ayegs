@@ -1,6 +1,6 @@
 import './headerButton.scss';
 
-import { FC, CSSProperties, useRef, useEffect } from 'react';
+import { FC, CSSProperties, useRef } from 'react';
 
 import IconButton from '../../IconButton';
 import { ReactComponent as UserSvgIcon } from './icons/user.svg';
@@ -26,16 +26,10 @@ export const CartIcon: FC<ClickableButtonProps & { itemCount?: number; }> = ({ o
   const cartItemCount = itemCount;
   const cartButtonRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    console.log('btn rendered');
-  });
-
   useEventListener({
     eventType: 'click',
     target: cartButtonRef,
-    eventHandler: (e) => {
-      console.log(e);
-    }
+    eventHandler: (e) => { console.log(e); }
   });
 
   return (
