@@ -1,8 +1,9 @@
 import { FC } from "react";
+import QueryProvider from './QueryProvider';
 import CurrencyProvider from "./CurrencyProvider";
 
 const combineProviders = (providers: Array<FC>) => providers.reduce(
-  (CombinedProviders: FC, Provider: FC) => function CombinedComponent({ children }) {
+  (CombinedProviders: FC, Provider: FC) => function AppProviders({ children }) {
     return (
       <CombinedProviders>
         <Provider>
@@ -14,7 +15,8 @@ const combineProviders = (providers: Array<FC>) => providers.reduce(
 );
 
 const AppProviders = combineProviders([
-  CurrencyProvider
+  CurrencyProvider,
+  QueryProvider
 ]);
 
 export default AppProviders;

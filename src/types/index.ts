@@ -1,3 +1,8 @@
+export interface CurrencyFormat {
+  currency: string;
+  lang: string;
+}
+
 export interface Product {
   descriptions: object;
   mainImage: string;
@@ -14,7 +19,5 @@ export interface Product {
 
 export type Products = Product[];
 
-export interface CurrencyFormat {
-  currency: string;
-  lang: string;
-}
+export interface CartItem extends Product { }
+export type CartItems = CartItem[];
