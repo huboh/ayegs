@@ -1,12 +1,13 @@
 import { useQuery, UseQueryOptions } from "react-query";
 import { CartItem, CartItems } from "../../types";
+import { dummyProducts } from "../../components/ProductCampaign";
 
 interface GetCartItemsProps {
   onError: UseQueryOptions<unknown>['onError'];
-  onSuccess: UseQueryOptions<CartItems>['onSuccess'];
+  onSuccess: NonNullable<UseQueryOptions<CartItems>['onSuccess']>;
 }
 
-const fetchCartItems = async (): Promise<CartItems> => [{ cart: '😋😋' }] as any;
+const fetchCartItems = async (): Promise<CartItems> => dummyProducts;
 
 export const useGetCartItems = ({ onSuccess, onError }: GetCartItemsProps) => {
   return useQuery('cart-items', fetchCartItems, {

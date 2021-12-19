@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { Products } from '../../types';
 import { ProductVerticalCarousel } from '../ProductCarousel';
 
-const dummyProducts: Products = [
+export const dummyProducts: Products = [
   {
     id: 1,
     mainImage: '/img-1.jpg',
