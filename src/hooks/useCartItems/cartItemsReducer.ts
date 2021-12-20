@@ -12,7 +12,7 @@ export type CartItemsAction =
   | { type: 'fetch-error'; payload: unknown; };
 
 export const cartItemsInitialState: CartItemsState = {
-  cartItems: [],
+  cartItems: null,
   isLoading: false,
   error: null,
 };

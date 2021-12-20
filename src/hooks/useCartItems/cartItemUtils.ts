@@ -3,7 +3,7 @@ import { CartItem, CartItems } from "../../types";
 import { dummyProducts } from "../../components/ProductCampaign";
 
 interface GetCartItemsProps {
-  onError: UseQueryOptions<unknown>['onError'];
+  onError: NonNullable<UseQueryOptions<unknown>['onError']>;
   onSuccess: NonNullable<UseQueryOptions<CartItems>['onSuccess']>;
 }
 
