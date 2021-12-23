@@ -10,6 +10,7 @@
 
   display: flex;
   flex-flow: row nowrap;
+  align-items: flex-start;
   justify-content: space-between;
 
   overflow: hidden;
@@ -75,5 +76,28 @@
         display: -webkit-box !important;
       }
     }
+
+    .price-quantity-wrapper {
+      display: flex;
+
+      .quantity-wrapper {
+        span {
+          font-weight: 600;
+        }
+      }
+
+      .x {
+        margin: 0 1em;
+      }
+
+      .price-wrapper {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .remove-cart-item-icon {
+    padding: 0 0.2em 0.2em;
+    width: 2.8em;
   }
 }

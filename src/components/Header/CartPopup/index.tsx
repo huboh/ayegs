@@ -1,5 +1,5 @@
 import './cart-popup.scss';
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import CartPopupItem from './CartItem';
 import { LinkButton } from '../../Buttons';
 import useCurrency from '../../../hooks/useCurrency';
@@ -12,8 +12,12 @@ export interface CartPopupProps {
 }
 
 const CartPopup: FC<CartPopupProps> = ({ display, className = '' }) => {
-  const { cartItems } = useCartItems();
   const { formatCurrency } = useCurrency();
+  const { contents: cartItems, subTotalPrice } = useCartItems();
+
+  const onCartItemDelete = useCallback((cartItemId) => {
+    console.log(cartItemId);
+  }, []);
 
   return !display ? null : (
     <section className={ `cart-popup ${className}`.trim() }>
@@ -21,7 +25,7 @@ const CartPopup: FC<CartPopupProps> = ({ display, className = '' }) => {
         <ul className="cart-items-wrapper">
           { cartItems?.map((cartItem) => (
             <li key={ cartItem.id }>
-              <CartPopupItem itemDetails={ cartItem } />
+              <CartPopupItem itemDetails={ cartItem } onDelete={ onCartItemDelete } />
             </li>
           )) }
         </ul>
@@ -36,12 +40,12 @@ const CartPopup: FC<CartPopupProps> = ({ display, className = '' }) => {
 
       <p className='cart-info'>
         <span>Cart Total:</span>
-        <span>{ formatCurrency(cartItems?.[0]?.price ?? 0) }</span>
+        <span>{ formatCurrency(subTotalPrice) }</span>
       </p>
 
       <div className="cta-button-wrappers">
         <LinkButton link='/cart' text='view cart' icon={ <FaCartArrowDown /> } />
-        <LinkButton link='/checkout' text='proceed to checkout' />
+        <LinkButton link='/checkout' text='proceed to checkout' icon={ <FaCartArrowDown /> } />
       </div>
     </section>
   );

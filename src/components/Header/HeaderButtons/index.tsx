@@ -8,6 +8,7 @@ import { ReactComponent as CartSvgIcon } from './icons/cart.svg';
 import { ReactComponent as WishlistSvgIcon } from './icons/favorite.svg';
 import { ReactComponent as HamburgerSvgIcon } from './icons/hamburger-menu.svg';
 import useEventListener from '../../../hooks/useEventListener';
+import useCartItems from '../../../hooks/useCartItems';
 
 export interface ClickableButtonProps {
   style?: CSSProperties;
@@ -22,8 +23,8 @@ export const HamburgerButton: FC<ClickableButtonProps> = ({ onClick, style }) =>
   );
 };
 
-export const CartIcon: FC<ClickableButtonProps & { itemCount?: number; }> = ({ onClick, itemCount = 0 }) => {
-  const cartItemCount = itemCount;
+export const CartIcon: FC<ClickableButtonProps> = ({ onClick }) => {
+  const { cartItemsTotal, } = useCartItems();
   const cartButtonRef = useRef<HTMLButtonElement>(null);
 
   useEventListener({
@@ -36,7 +37,7 @@ export const CartIcon: FC<ClickableButtonProps & { itemCount?: number; }> = ({ o
     <IconButton onClick={ onClick } className='cart-button' title='cart' ref={ cartButtonRef }>
       <CartSvgIcon />
       <span className='item-count-wrapper' >
-        <span className='item-count'>{ cartItemCount }</span>
+        <span className='item-count'>{ cartItemsTotal }</span>
       </span>
     </IconButton>
   );

@@ -2,8 +2,10 @@ import './cart-item.scss';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { CartItem } from '../../../../types';
+import IconButton from '../../../IconButton';
 import useCurrency from '../../../../hooks/useCurrency';
 import ProductImage from '../../../ProductCardSmall/ProductImage';
+import { ReactComponent as DeleteButtonIcon } from './delete-bin.svg';
 
 interface CartItemImageProps {
   title: string;
@@ -18,8 +20,14 @@ interface CartItemInfoProps {
   price: string;
 }
 
+interface DeleteButtonProps<T = CartItem['productId']> {
+  cartItemId: T;
+  onDelete(cartItemId: T): void;
+}
+
 interface CartItemProps {
   itemDetails: CartItem;
+  onDelete(cartItemId: CartItem['productId']): void;
 }
 
 const CartItemImage: FC<CartItemImageProps> = (props) => {
@@ -37,14 +45,24 @@ const CartItemInfo: FC<CartItemInfoProps> = ({ productLink, quantity, title, pri
         <Link className='link' to={ productLink }>{ title }</Link>
       </h1>
       <div className="price-quantity-wrapper">
-        <p className='quantity-wrapper'>Qty: { quantity }</p>
+        <p className='quantity-wrapper'>Qty: <span>{ quantity }</span></p>
+        <span className='x'>x</span>
         <p className='price-wrapper'>{ formatCurrency(price) }</p>
       </div>
     </div>
   );
 };
 
-const CartPopupItem: FC<CartItemProps> = ({ itemDetails }) => {
+const DeleteButton: FC<DeleteButtonProps> = ({ onDelete, cartItemId }) => {
+
+  return (
+    <IconButton className='remove-cart-item-icon' onClick={ () => onDelete(cartItemId) }>
+      <DeleteButtonIcon />
+    </IconButton>
+  );
+};
+
+const CartPopupItem: FC<CartItemProps> = ({ itemDetails, onDelete }) => {
   const { price, title, mainImage, productId } = itemDetails;
   const productLink = `products/${productId}`;
 
@@ -52,6 +70,7 @@ const CartPopupItem: FC<CartItemProps> = ({ itemDetails }) => {
     <div className="cart-popup-item">
       <CartItemImage { ...{ mainImageSrc: mainImage, title, productLink } } />
       <CartItemInfo  { ...{ title, productLink, price, quantity: 1 } } />
+      <DeleteButton { ...{ onDelete, cartItemId: productId } } />
     </div>
   );
 };

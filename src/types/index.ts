@@ -19,5 +19,7 @@ export interface Product {
 
 export type Products = Product[];
 
-export interface CartItem extends Product { }
+export interface CartItem extends Product {
+  quantity: number;
+}
 export type CartItems = CartItem[];
