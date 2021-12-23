@@ -1,9 +1,15 @@
-import { CartItem, CartItems } from "../../types";
+import { CartItems } from "../../types";
+import { addCartItem, removeCartItem, calculateCartInfo } from './cartItemUtils';
 
 export interface CartItemsState {
-  cartItems: null | CartItems;
+  contents: null | CartItems;
   error: null | unknown;
   isLoading: boolean;
+  cartItemsTotal: number,
+  subTotalPrice: number,
+  totalPrice: number,
+  addCartItem: () => void;
+  removeCartItem: () => void;
 }
 
 export type CartItemsAction =
@@ -12,9 +18,14 @@ export type CartItemsAction =
   | { type: 'fetch-error'; payload: unknown; };
 
 export const cartItemsInitialState: CartItemsState = {
-  cartItems: null,
+  contents: null,
   isLoading: false,
   error: null,
+  cartItemsTotal: 0,
+  subTotalPrice: 0,
+  totalPrice: 0,
+  addCartItem,
+  removeCartItem,
 };
 
 export const cartItemsReducer = (state: CartItemsState, action: CartItemsAction): CartItemsState => {
@@ -23,12 +34,15 @@ export const cartItemsReducer = (state: CartItemsState, action: CartItemsAction)
   switch (type) {
     case 'fetch-error': return {
       ...state,
+      isLoading: false,
       error: action.payload,
     };
 
     case 'fetch-success': return {
       ...state,
-      cartItems: action.payload
+      isLoading: false,
+      ...calculateCartInfo(action.payload),
+      contents: action.payload
     };
 
     default: return state;
