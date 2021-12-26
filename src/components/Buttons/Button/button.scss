@@ -12,6 +12,14 @@
   background-color: var(--primary-color);
   transition: background-color 0.2s, transform 0.2s;
 
+  &.invert-style {
+    border: 2px solid;
+    padding: 0.55em 1em;
+    background-color: transparent;
+    border-color: var(--primary-color);
+    transition: background-color 0.2s;
+  }
+
   .icon-wrapper {
     width: 1rem;
     margin-left: 0.6em;

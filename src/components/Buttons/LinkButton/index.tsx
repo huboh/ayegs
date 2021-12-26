@@ -1,6 +1,6 @@
 import './link-button.scss';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { FC } from "react";
 
 interface LinkButtonProps {
   link: string;
@@ -10,7 +10,8 @@ interface LinkButtonProps {
   icon?: JSX.Element;
 }
 
-const LinkButton: FC<LinkButtonProps> = ({ link, icon, title, text, className, ...otherProps }) => {
+export default function LinkButton(props: LinkButtonProps) {
+  const { link, text, className, icon, title, ...otherProps } = props;
 
   return (
     <Link
@@ -24,6 +25,14 @@ const LinkButton: FC<LinkButtonProps> = ({ link, icon, title, text, className, .
       { icon && <span className='icon-wrapper'>{ icon }</span> }
     </Link>
   );
+}
+
+const LinkButtonInvert: FC<LinkButtonProps> = (props) => {
+  const className = `invert-style ${props.className}`;
+
+  return (
+    <LinkButton { ...({ ...props, className }) } />
+  );
 };
 
-export default LinkButton;
+LinkButton.Transparent = LinkButtonInvert;
