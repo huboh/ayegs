@@ -2,10 +2,10 @@ import './product-card.scss';
 import { FC } from "react";
 import { Product as ProductProp } from "../../../../types";
 
-import DiscountTag from './DiscountTag';
 import ProductInfo from './ProductInfo';
-import ProductImage from './ProductImage';
-import WishListButton from './WishListButton';
+import DiscountTag from '../../components/DiscountTag';
+import ProductImage from '../../components/ProductImage';
+import WishListButton from '../../components/WishListButton';
 
 export interface ProductMediumProps {
   productData: ProductProp;
@@ -19,7 +19,7 @@ const ProductCardMedium: FC<ProductMediumProps> = ({ productData, ...otherProps 
     <div className="product-card" { ...otherProps }>
       <WishListButton />
       <DiscountTag { ...{ discount } } />
-      <ProductImage { ...{ mainImageSrc: mainImage, title, productLink } } />
+      <ProductImage { ...{ mainImageSrc: mainImage, title, productLink, className: 'product-medium' } } />
       <ProductInfo { ...{ category, price, title, productLink } } />
     </div>
   );

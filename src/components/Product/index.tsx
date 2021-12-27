@@ -1,6 +1,6 @@
-import ProductCardSmall from './components/ProductCardSmall';
-import ProductCardExtended from './components/ProductCardExtended';
-import ProductCardMedium, { ProductMediumProps } from './components/ProductCardMedium';
+import ProductCardSmall from './variants/ProductCardSmall';
+import ProductCardExtended from './variants/ProductCardExtended';
+import ProductCardMedium, { ProductMediumProps } from './variants/ProductCardMedium';
 
 export default function Product(props: ProductMediumProps) {
   return (

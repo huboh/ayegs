@@ -1,7 +1,12 @@
 import './discount-tag.scss';
 import { FC } from "react";
 
-const DiscountTag: FC<{ discount?: string | number; className?: string; }> = ({ discount, className = '' }) => {
+interface DiscountTagProps {
+  discount?: string | number;
+  className?: string;
+};
+
+const DiscountTag: FC<DiscountTagProps> = ({ discount, className = '' }) => {
 
   return discount ? (
     <div className={ `discount-tag-wrapper ${className}`.trim() } >

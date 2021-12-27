@@ -26,7 +26,7 @@
     transform: translateY(-2px);
   }
 
-  .product-small-image-wrapper.cart-item-image {
+  .product-small.cart-item-image {
     min-width: 6em;
     width: 6em;
   }
@@ -47,6 +47,7 @@
     background-color: transparent;
 
     .link {
+      width: 100%;
       outline: none;
       display: block;
       text-decoration: none;

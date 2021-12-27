@@ -22,4 +22,27 @@
       fill: red;
     }
   }
+
+  &.extended {
+    width: 3.5rem;
+    height: 2rem;
+    top: unset;
+    right: unset;
+    position: relative;
+    visibility: visible;
+    transition: transform 0.2s;
+    border-radius: var(--border-radius);
+
+    .wishlist-icon {
+      width: 1rem;
+    }
+
+    &:hover {
+      .wishlist-icon {
+        &.checked {
+          fill: red;
+        }
+      }
+    }
+  }
 }

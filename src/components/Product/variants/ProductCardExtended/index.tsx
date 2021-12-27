@@ -2,11 +2,11 @@ import './product-card-large.scss';
 import { FC } from "react";
 import { Product } from "../../../../types";
 
-import DiscountTag from './DiscountTag';
 import ProductInfo from './ProductInfo';
-import ProductImage from './ProductImage';
-import AddToCartButton from './AddToCartButton';
-import WishListButton from './WishListButton';
+import DiscountTag from '../../components/DiscountTag';
+import ProductImage from '../../components/ProductImage';
+import WishListButton from '../../components/WishListButton';
+import AddToCartButton from '../../components/AddToCartButton';
 
 export interface ProductExtendedProps {
   productData: Product;
@@ -19,12 +19,12 @@ const ProductCardExtended: FC<ProductExtendedProps> = ({ productData, ...otherPr
   return (
     <div className="product-card-large" { ...otherProps }>
       <DiscountTag { ...{ discount, className: 'invert' } } />
-      <ProductImage { ...{ mainImageSrc: mainImage, title, productLink } } />
+      <ProductImage { ...{ mainImageSrc: mainImage, title, productLink, className: 'product-extended' } } />
       <ProductInfo { ...{ category, price, title, productLink, ratings } } />
 
       <div className="bottom-cta-wrappers">
-        <WishListButton />
-        <AddToCartButton />
+        <WishListButton.Extended />
+        <AddToCartButton.Extended />
       </div>
     </div>
   );

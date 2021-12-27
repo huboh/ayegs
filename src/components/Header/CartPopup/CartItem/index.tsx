@@ -5,7 +5,7 @@ import { CartItem } from '../../../../types';
 import IconButton from '../../../IconButton';
 import useCurrency from '../../../../hooks/useCurrency';
 import { ReactComponent as DeleteButtonIcon } from './delete-bin.svg';
-import ProductImage from '../../../Product/components/ProductCardSmall/ProductImage';
+import ProductImage from '../../../Product/components/ProductImage';
 
 interface CartItemImageProps {
   title: string;
@@ -32,7 +32,7 @@ interface CartItemProps {
 
 const CartItemImage: FC<CartItemImageProps> = (props) => {
   return (
-    <ProductImage { ...props } className='cart-item-image' />
+    <ProductImage { ...props } className='product-small cart-item-image' />
   );
 };
 
