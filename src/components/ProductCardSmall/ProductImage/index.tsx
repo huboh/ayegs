@@ -1,6 +1,7 @@
 import './product-image.scss';
 
 import { FC } from 'react';
+import Img from '../../Img';
 import { Link } from 'react-router-dom';
 
 interface ProductImageProps {
@@ -15,7 +16,7 @@ const ProductImage: FC<ProductImageProps> = ({ mainImageSrc, className = '', tit
   return (
     <div className={ `product-small-image-wrapper ${className}`.trim() }{ ...otherProps }>
       <Link to={ productLink } className='image-link-wrapper'>
-        <img className='product-image' src={ mainImageSrc } alt={ title } />
+        <Img className='product-image' src={ mainImageSrc } alt={ title } fallBackSrc={"/img-2.jpg"} />
       </Link>
     </div>
   );
