@@ -1,28 +1,12 @@
-import './product-card.scss';
-import { FC } from "react";
-import { Product as ProductProp } from "../../types";
+import ProductCardSmall from './components/ProductCardSmall';
+import ProductCardExtended from './components/ProductCardExtended';
+import ProductCardMedium, { ProductMediumProps } from './components/ProductCardMedium';
 
-import DiscountTag from './DiscountTag';
-import ProductInfo from './ProductInfo';
-import ProductImage from './ProductImage';
-import WishListButton from './WishListButton';
-
-interface ProductProps {
-  productData: ProductProp;
+export default function Product(props: ProductMediumProps) {
+  return (
+    <ProductCardMedium { ...props } />
+  );
 }
 
-const Product: FC<ProductProps> = ({ productData, ...otherProps }) => {
-  const { category, price, title, mainImage, discount, productId } = productData;
-  const productLink = `products/${productId}`;
-
-  return (
-    <div className="product-card" { ...otherProps }>
-      <WishListButton />
-      <DiscountTag { ...{ discount } } />
-      <ProductImage { ...{ mainImageSrc: mainImage, title, productLink } } />
-      <ProductInfo { ...{ category, price, title, productLink } } />
-    </div>
-  );
-};
-
-export default Product;
+Product.Small = ProductCardSmall;
+Product.Extended = ProductCardExtended;

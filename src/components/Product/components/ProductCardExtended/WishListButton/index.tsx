@@ -1,6 +1,6 @@
 import './wishlist-icon.scss';
 import { useState, FC } from "react";
-import IconButton from "../../IconButton";
+import IconButton from "../../../../IconButton";
 
 import { ReactComponent as WishListIcon } from './favorite.svg';
 import { ReactComponent as WishListCheckedIcon } from './favorite-filled.svg';

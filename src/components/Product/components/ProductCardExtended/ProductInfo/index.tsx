@@ -1,8 +1,8 @@
 import './product-info.scss';
 import { FC } from "react";
 import { Link } from 'react-router-dom';
-import ProductRating from '../../ProductRating';
-import useCurrency from '../../../hooks/useCurrency';
+import ProductRating from '../../../../ProductRating';
+import useCurrency from '../../../../../hooks/useCurrency';
 
 interface ProductInfoProps {
   productLink: string;
@@ -12,11 +12,14 @@ interface ProductInfoProps {
   price: string;
 }
 
-const ProductInfo: FC<ProductInfoProps> = ({ price, title, productLink, ratings }) => {
+const ProductInfo: FC<ProductInfoProps> = ({ price, category, title, productLink, ratings = 0 }) => {
   const { formatCurrency } = useCurrency();
 
   return (
-    <div className="product-small-info-wrapper">
+    <div className="product-large-info-wrapper">
+      <Link className='link product-category' to={ `category/${category}` }>
+        { category }
+      </Link>
       <h1 className='product-title'>
         <Link className='link' to={ productLink }>{ title }</Link>
       </h1>

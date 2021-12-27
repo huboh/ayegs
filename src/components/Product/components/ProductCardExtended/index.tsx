@@ -1,6 +1,6 @@
 import './product-card-large.scss';
 import { FC } from "react";
-import { Product } from "../../types";
+import { Product } from "../../../../types";
 
 import DiscountTag from './DiscountTag';
 import ProductInfo from './ProductInfo';
@@ -8,11 +8,11 @@ import ProductImage from './ProductImage';
 import AddToCartButton from './AddToCartButton';
 import WishListButton from './WishListButton';
 
-interface ProductProps {
+export interface ProductExtendedProps {
   productData: Product;
 }
 
-const ProductLarge: FC<ProductProps> = ({ productData, ...otherProps }) => {
+const ProductCardExtended: FC<ProductExtendedProps> = ({ productData, ...otherProps }) => {
   const { category, price, title, mainImage, discount, ratings, productId } = productData;
   const productLink = `products/${productId}`;
 
@@ -30,4 +30,4 @@ const ProductLarge: FC<ProductProps> = ({ productData, ...otherProps }) => {
   );
 };
 
-export default ProductLarge;
+export default ProductCardExtended;

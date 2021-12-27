@@ -1,7 +1,7 @@
 import './product-image.scss';
 
 import { FC } from 'react';
-import Img from '../../Img';
+import Img from '../../../../Img';
 import { Link } from 'react-router-dom';
 
 interface ProductImageProps {
