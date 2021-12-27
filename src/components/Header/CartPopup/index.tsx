@@ -44,8 +44,8 @@ const CartPopup: FC<CartPopupProps> = ({ display, className = '' }) => {
       </p>
 
       <div className="cta-button-wrappers">
-        <LinkButton link='/cart' text='view cart' icon={ <FaCartArrowDown /> } />
-        <LinkButton.Transparent link='/checkout' text='proceed to checkout' icon={ <FaCartArrowDown /> } />
+        <LinkButton.Transparent link='/cart' text='view cart' icon={ <FaCartArrowDown /> } />
+        <LinkButton link='/checkout' text='proceed to checkout' icon={ <FaCartArrowDown /> } />
       </div>
     </section>
   );
