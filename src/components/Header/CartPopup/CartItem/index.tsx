@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { CartItem } from '../../../../types';
 import IconButton from '../../../IconButton';
 import useCurrency from '../../../../hooks/useCurrency';
-import ProductImage from '../../../ProductCardSmall/ProductImage';
 import { ReactComponent as DeleteButtonIcon } from './delete-bin.svg';
+import ProductImage from '../../../Product/components/ProductCardSmall/ProductImage';
 
 interface CartItemImageProps {
   title: string;

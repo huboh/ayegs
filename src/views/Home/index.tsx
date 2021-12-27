@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Products } from "../../types";
-import ProductLarge from "../../components/ProductLarge";
+import Product from '../../components/Product';
 import ProductCarousel from "../../components/ProductCarousel";
 import ProductCampaign from "../../components/ProductCampaign";
 
@@ -65,7 +65,7 @@ const Home: FC = () => {
       <ProductCarousel title="recent products" products={ dummyProducts } />
 
       <ProductCarousel title="deal of the day" products={ dummyProducts } setProductComponent={
-        (productInfo) => <ProductLarge productData={ productInfo } />
+        (productInfo) => <Product.Extended productData={ productInfo } />
       } />
 
       <ProductCampaign />

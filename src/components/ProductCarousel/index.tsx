@@ -1,9 +1,8 @@
 import './product-carousel.scss';
 
 import { FC } from "react";
-import { Products } from "../../types";
 import Product from '../Product';
-import ProductCardSmall from '../ProductCardSmall';
+import { Products } from "../../types";
 
 interface ProductCarouselProps {
   title: string;
@@ -37,7 +36,7 @@ const ProductVerticalCarousel: FC<ProductCarouselProps> = ({ products, title, se
       <ul className="product-list-carousel-wrapper product-list-carousel-wrapper">
         { products?.slice(0, 3).map((product) => (
           <li key={ product.productId }>
-            { setProductComponent?.(product) ?? <ProductCardSmall productData={ product } /> }
+            { setProductComponent?.(product) ?? <Product.Small productData={ product } /> }
           </li>
         )) }
       </ul>
