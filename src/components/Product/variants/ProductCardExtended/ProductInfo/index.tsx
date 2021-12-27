@@ -1,7 +1,7 @@
 import './product-info.scss';
 import { FC } from "react";
 import { Link } from 'react-router-dom';
-import ProductRating from '../../../../ProductRating';
+import ProductRating from '../../../components/ProductRating';
 import useCurrency from '../../../../../hooks/useCurrency';
 
 interface ProductInfoProps {
