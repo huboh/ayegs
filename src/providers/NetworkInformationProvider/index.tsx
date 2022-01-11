@@ -31,7 +31,7 @@ const NetworkInformationProvider: FC = ({ children }) => {
   });
 
   useEventListener({
-    target: navigatorConnection as unknown as typeof window,
+    target: navigatorConnection,
     eventType: 'change',
     eventHandler: (event) => setNetWorkStatus(() => getNetworkStatus())
   });
