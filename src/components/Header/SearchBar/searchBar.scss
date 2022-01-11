@@ -1,9 +1,79 @@
 .search-form-wrapper {
+  --fill-color: var(--text-color-light);
+  --form-color: var(--background-color-grey-hover);
+  --side-spacing: 0.4em;
+
   display: none;
-  min-width: 30%;
+  min-width: 35%;
+  margin-left: auto;
+  flex-flow: row nowrap;
+  align-items: center;
   position: relative;
   border-radius: var(--border-radius);
   border: 1px solid var(--primary-color);
+  background-color: var(--form-color);
+  transition: all 0.2s ease;
+
+  svg,
+  span,
+  button {
+    user-select: none;
+  }
+
+  .search-icon {
+    min-width: 1.3rem;
+    width: 1.3rem;
+    margin: 0 var(--side-spacing);
+    margin-left: 0.6em;
+    fill: var(--fill-color);
+  }
+
+  .selected-scope {
+    height: 2em;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    padding: 0.2em 0.7em;
+    margin-left: 0.2em;
+    color: var(--color);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color-light);
+
+    display: flex;
+    align-items: center;
+  }
+
+  .close-btn {
+    margin: 0;
+    height: 100%;
+    padding: 0.2em 0;
+    margin-right: var(--side-spacing);
+
+    .close-btn-icon {
+      height: 100%;
+      min-width: 1.3em;
+      fill: var(--fill-color);
+    }
+  }
+
+  .search-meta-info {
+    width: 100%;
+    padding: 0.6em;
+    position: absolute;
+    top: 115%;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+  }
+
+  &:hover,
+  &:focus-within {
+    --fill-color: var(--text-color-grey);
+    --form-color: var(--background-color-grey);
+
+    opacity: 1;
+  }
 
   @media screen and (min-width: 760px) {
     display: flex;

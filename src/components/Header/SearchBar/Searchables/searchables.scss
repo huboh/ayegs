@@ -1,0 +1,73 @@
+.searchables-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  p {
+    width: auto;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 0.3em;
+    white-space: nowrap;
+    color: var(--text-color-light);
+  }
+
+  .searchables-list-wrapper {
+    width: 100%;
+    list-style-type: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    li:not(:last-of-type) {
+      margin-right: 0.4em;
+    }
+
+    .searchable {
+      --color: var(--text-color-grey);
+
+      height: 2.5em;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      padding: 0.2em 0.7em;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--color);
+      border: 1px solid transparent;
+      border-radius: var(--border-radius);
+      background-color: var(--primary-color-light);
+      transition: background-color 0.2s ease, color 0.2s ease,
+        border-color 0.2s ease;
+
+      .searchable-icon {
+        fill: var(--color);
+        margin: 0;
+        margin-right: 0.3em;
+        min-width: 1.3em;
+        width: 1.3em;
+      }
+
+      .searchable-text {
+        font-weight: 700;
+      }
+
+      &.selected {
+        --color: var(--primary-color);
+        border-color: var(--color);
+      }
+
+      &:hover {
+        background-color: var(--primary-color-hover);
+      }
+
+      &:active {
+        background-color: var(--primary-color-active);
+      }
+    }
+  }
+}
