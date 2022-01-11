@@ -6,6 +6,7 @@ import AppProviders from '../providers';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import LoadingScreen from '../components/LoadingScreen';
 
 const Home = lazy(() => import('../views/Home'));
 const Cart = lazy(() => import('../views/Cart'));
@@ -19,7 +20,7 @@ const App: FC = () => {
   return (
     <AppProviders>
       <Router>
-        <Suspense fallback={ <p>loading...</p> }>
+        <Suspense fallback={ <LoadingScreen /> }>
           <div className="app">
             <Header />
 
