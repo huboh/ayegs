@@ -1,13 +1,13 @@
 import { useEffect, RefObject } from 'react';
 
 type Event = keyof WindowEventMap;
-type Target = Window | HTMLElement;
+type Target = typeof window | HTMLElement;
 
-interface UseEventListenerProps<T = HTMLElement> {
-  target: RefObject<T>;
+interface UseEventListenerProps<T extends Target> {
   eventType: Event | Event[];
   eventHandler: EventListener;
   eventOptions?: EventListenerOptions;
+  target: T extends HTMLElement ? RefObject<T> : Window;
 }
 
 const getListener = (target: Target, listenerType: 'addEventListener' | 'removeEventListener') => (
@@ -16,11 +16,11 @@ const getListener = (target: Target, listenerType: 'addEventListener' | 'removeE
   }
 );
 
-const useEventListener = (props: UseEventListenerProps) => {
+const useEventListener = <T extends Target>(props: UseEventListenerProps<T>) => {
   const { target, eventType, eventHandler, eventOptions } = props;
 
   useEffect(() => {
-    const eventTarget = target.current ?? window;
+    const eventTarget = ((target as any)?.current ?? window) as Target;
     const attachListener = getListener(eventTarget, 'addEventListener');
     const removeListener = getListener(eventTarget, 'removeEventListener');
 
