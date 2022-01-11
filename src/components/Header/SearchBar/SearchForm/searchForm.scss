@@ -14,21 +14,13 @@
     border: none;
     outline: none;
     font-weight: 600;
-    padding: 0.6em 0.8em;
+    padding: 0.6em 0.5em;
     text-overflow: ellipsis;
     background-color: transparent;
-  }
-
-  .search-icon {
-    width: 1.5rem;
-    margin-left: auto;
-    margin-right: 0.4em;
   }
 
   &:hover,
   &:focus-within {
     opacity: 1;
-    cursor: pointer;
-    background-color: rgb(243, 244, 246);
   }
 }
