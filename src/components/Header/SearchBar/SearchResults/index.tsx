@@ -6,6 +6,7 @@ export interface SearchResultsProp {
   searchTerm: string;
   searchResults: undefined | Array<SearchResultProp>;
 }
+
 export interface SearchResultProp {
   result: {
     ProductTitle: string;
@@ -25,29 +26,29 @@ export const SearchResult: FC<SearchResultProp> = ({ result: { link } }) => {
 
 const SearchResults: FC<SearchResultsProp> = ({ searchResults, searchTerm }) => {
   const networkStaus = useNetworkInformation();
-  let error = !(networkStaus.isOnline) && 'seems like you\'re offline 📴';
-
-  if (error) {
-    return (
-      <div className='search-results'>
-        <p>{ error }</p>
-      </div>
-    );
-  }
+  let error: string;
 
   if (!searchTerm || searchTerm.length < 3) {
     error = searchTerm.length < 3 ? 'please enter at least 3 characters to search' : 'you have\'nt search for any thing yet!!!';
 
     return (
       <div className='search-results'>
-        <p>{ error }</p>
+        <p className='info-text'>{ error }</p>
+      </div>
+    );
+  }
+
+  if (!(networkStaus.isOnline)) {
+    return (
+      <div className='search-results'>
+        <p className='info-text'>{ 'seems like you\'re offline 📴' }</p>
       </div>
     );
   }
 
   return (
     <div className='search-results'>
-      { !searchResults?.length ? <p>no result 🤫</p> : (
+      { !searchResults?.length ? <p className='info-text'>no result 🤫</p> : (
         <ul className='search-results-wrapper'>
           { searchResults.map(({ result }) => <SearchResult result={ result } />) }
         </ul>

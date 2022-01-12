@@ -1,4 +1,15 @@
-.search-results-wrapper {
-  width: 100%;
-  padding: 0.6em;
+.search-results {
+  font-size: 0.9rem;
+
+  .info-text {
+    width: 100%;
+    margin: 2em 0;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .search-results-wrapper {
+    width: 100%;
+    padding: 0.6em;
+  }
 }
