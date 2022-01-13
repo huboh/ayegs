@@ -65,9 +65,7 @@ const SearchBar: FC = () => {
 
   const searchFormProps: SearchFormProps = {
     inputPlaceholder: `search for ${searchTermScope} in all of aora`, searchTerm,
-    onFocus: () => setDisplayMetaInfo(true), onInput: (searchInput) => setSearchTerm(
-      searchInput.trim()
-    )
+    onFocus: () => setDisplayMetaInfo(true), onInput: (searchInput) => setSearchTerm(searchInput)
   };
 
   useEffect(() => {
