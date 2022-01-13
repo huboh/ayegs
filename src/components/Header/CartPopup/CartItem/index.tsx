@@ -1,11 +1,13 @@
-import './cart-item.scss';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+
+import './cart-item.scss';
+import { MdClose } from 'react-icons/md';
 import { CartItem } from '../../../../types';
 import IconButton from '../../../IconButton';
-import useCurrency from '../../../../hooks/useCurrency';
-import { ReactComponent as DeleteButtonIcon } from './delete-bin.svg';
 import ProductImage from '../../../Product/components/ProductImage';
+
+import useCurrency from '../../../../hooks/useCurrency';
 
 interface CartItemImageProps {
   title: string;
@@ -56,8 +58,8 @@ const CartItemInfo: FC<CartItemInfoProps> = ({ productLink, quantity, title, pri
 const DeleteButton: FC<DeleteButtonProps> = ({ onDelete, cartItemId }) => {
 
   return (
-    <IconButton className='remove-cart-item-icon' onClick={ () => onDelete(cartItemId) }>
-      <DeleteButtonIcon />
+    <IconButton className='remove-cart-item-icon' title='remove item' onClick={ () => onDelete(cartItemId) }>
+      <MdClose className='close-btn-icon' />
     </IconButton>
   );
 };
