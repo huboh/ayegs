@@ -1,13 +1,13 @@
 import './product-carousel.scss';
 
-import { FC } from "react";
+import { FC, Key } from "react";
 import Product from '../Product';
 import { Products } from "../../types";
 
 interface ProductCarouselProps {
   title: string;
   products: Products | [];
-  setProductComponent?: (productInfo: Products[0]) => JSX.Element;
+  setProductComponent?: (productInfo: Products[0], key?: Key) => JSX.Element;
 }
 
 const ProductCarousel: FC<ProductCarouselProps> = ({ products, title, setProductComponent }) => {
