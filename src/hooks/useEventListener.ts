@@ -20,6 +20,7 @@ const useEventListener = <T extends Target>(props: UseEventListenerProps<T>) => 
   const { target, eventType, eventHandler, eventOptions } = props;
 
   useEffect(() => {
+    if (!target) return;
     const eventTarget: Target = (target as any).current! ?? target;
     const attachListener = getListener(eventTarget, 'addEventListener');
     const removeListener = getListener(eventTarget, 'removeEventListener');
