@@ -1,10 +1,14 @@
+import { FC } from 'react';
+
 import './cart-popup.scss';
-import { FC, useCallback } from 'react';
 import CartPopupItem from './CartItem';
 import { LinkButton } from '../../Buttons';
-import useCurrency from '../../../hooks/useCurrency';
-import useCartItems from '../../../hooks/useCartItems';
+
 import { FaCartArrowDown, FaSadTear } from 'react-icons/fa';
+
+import useAnimatedComponent from '../../../hooks/useAnimatedComponent';
+import useCartItems from '../../../hooks/useCartItems';
+import useCurrency from '../../../hooks/useCurrency';
 
 export interface CartPopupProps {
   display: boolean;
@@ -13,19 +17,16 @@ export interface CartPopupProps {
 
 const CartPopup: FC<CartPopupProps> = ({ display, className = '' }) => {
   const { formatCurrency } = useCurrency();
-  const { contents: cartItems, subTotalPrice } = useCartItems();
+  const { contents: cartItems, subTotalPrice, removeCartItem } = useCartItems();
+  const [AnimatedComponent] = useAnimatedComponent({ display, tagName: 'section', className: `cart-popup ${className}` });
 
-  const onCartItemDelete = useCallback((cartItemId) => {
-    console.log(cartItemId);
-  }, []);
-
-  return !display ? null : (
-    <section className={ `cart-popup ${className}`.trim() }>
+  return (
+    <AnimatedComponent>
       { cartItems ? (
         <ul className="cart-items-wrapper">
           { cartItems?.map((cartItem) => (
             <li key={ cartItem.id }>
-              <CartPopupItem itemDetails={ cartItem } onDelete={ onCartItemDelete } />
+              <CartPopupItem itemDetails={ cartItem } onDelete={ removeCartItem } />
             </li>
           )) }
         </ul>
@@ -47,7 +48,7 @@ const CartPopup: FC<CartPopupProps> = ({ display, className = '' }) => {
         <LinkButton.Transparent link='/cart' text='view cart' icon={ <FaCartArrowDown /> } />
         <LinkButton link='/checkout' text='proceed to checkout' icon={ <FaCartArrowDown /> } />
       </div>
-    </section>
+    </AnimatedComponent>
   );
 };
 
